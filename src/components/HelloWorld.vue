@@ -71,8 +71,8 @@
 </template>
 
 <script>
-//import axios from 'axios';
-import timeService from '../services/timeService';
+// import axios from 'axios';
+import timeService from '../services/timeService'
 
 export default {
   name: 'HelloWorld',
@@ -84,16 +84,15 @@ export default {
     }
   },
 
-  async mounted() {
-    //const { data } = await axios.get('http://localhost:9000/getTime');
-    this.times = (await timeService.getTime()).data;
-    this.canadaTime = (await timeService.getCanadaTime()).data;
-    //this.msg = data;
-  },
+  async mounted () {
+    // const { data } = await axios.get('http://localhost:9000/getTime');
+    this.times = (await timeService.getTime()).data
+    this.canadaTime = (await timeService.getCanadaTime()).data
+    // this.msg = data;
+  }
 }
 
 </script>
-
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>

@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <nav class="pageHeader"> 
+    <nav class="pageHeader">
       <a href="http://localhost:8080/#/">
         <img id="logo" src="./assets/msm-logo-stack-rgb.svg">
       </a>
@@ -25,7 +25,6 @@
 
       </div>
     </nav>
-    
     <router-view/>
   </div>
 </template>
@@ -40,6 +39,8 @@ export default {
 
 body{
   background-color: white;
+  margin: 0;
+  padding: 0;
 }
 #app {
   font-family: Open Sans,Arial,sans-serif;;
@@ -71,7 +72,6 @@ body{
   left: 0;
   right: 0;
   position:absolute; */
-
 }
 .navigation{
   align-self: center;
@@ -81,7 +81,6 @@ body{
   right: 0;
   left: 0;
   flex-basis: 80%;
-  
 }
 .navigation-container{
   list-style: none;

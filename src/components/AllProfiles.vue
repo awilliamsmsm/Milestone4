@@ -2,7 +2,7 @@
     <div class="hello">
     <h1>{{ msg }}</h1>
     <!-- <ul id='allProfilesList'>
-        <li 
+        <li
         v-for="profile in profiles"
         :key="profile.profileID"
         >
@@ -28,13 +28,12 @@
                 <td> {{profile.firstName}}</td>
                 <td> {{profile.lastName}}</td>
             </tr>
-
         </table>
   </div>
 </template>
 
 <script>
-import profileService from '../services/profileService';
+import profileService from '../services/profileService'
 
 export default {
   name: 'AllProfiles',
@@ -45,10 +44,10 @@ export default {
     }
   },
 
-  async mounted() {
-      this.profiles = (await profileService.getAll()).data;
-      window.cmp = this;
-  },
+  async mounted () {
+    this.profiles = (await profileService.getAll()).data
+    window.cmp = this
+  }
 }
 </script>
 

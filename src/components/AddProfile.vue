@@ -1,6 +1,12 @@
 <template>
     <div class="form">
-        <h1>Create Profile</h1> 
+        <h1>Create Profile</h1>
+
+        <!-- <p class="error" v-if="errors.length">
+            <ul>
+                <li v-for="error in errors"> {{ error }}</li>
+            </ul>
+        </p> -->
 
         <form class="add-profile-form">
             First name:
@@ -8,41 +14,44 @@
         </form>
         <br>
         <br>
-        <form class="add-profile-form"> 
+        <form class="add-profile-form">
             Last name:
             <input type="text" v-model="profile.lastName" required>
         </form>
         <br>
         <br>
         <form class="add-profile-form">
-            <button v-on:click="create">Submit</button>
+            <button class="btn" v-show='isProfileComplete' v-on:click="create">Submit</button>
+            <!-- <button v-on:click="create">Submit</button> -->
         </form>
     </div>
 </template>
 
 <script>
-import profileService from '../services/profileService';
+import profileService from '../services/profileService'
 
 export default {
     name: 'AddProfile',
     data () {
         return {
-            profile:{
+            profile: {
                 firstName: null,
                 lastName: null,
             }
+        }  
+    },
+    
+    computed:{
+        isProfileComplete () {
+            return this.profile.firstName && this.profile.lastName;
+            //return Object.keys(this.firstName).some(key => this.firstName[key].validated) && Object.keys(this.lastName).some(key => this.lastName[key].valid);
         }
     },
+
     methods:{
-         async create(){
+         async create() {
             console.log(this.profile);
             await profileService.addNewProfile(this.profile)
-        //     this.$root.$emit('initSnackBar', {
-        //     text: 'Profile Created Successfully',
-        //     color: 'success'})
-            // this.$router.push({
-            //     name: 'this.profile'
-            // })
          }
     }
 
@@ -62,6 +71,10 @@ li {
   display: inline-block;
   margin: 0 10px;
 }
+.form {
+    font: 500 1.6em/1.4 Open Sans,Arial,Helvetica,Sans-Serif;
+    font-weight: 300;
+}
 
 table {
     display: inline-block;
@@ -69,6 +82,20 @@ table {
 
 .add-profile-form{
     display: inline-block;
+}
+
+.btn {
+    color: #fff;
+    background-color: #48a415;
+    border-color: #48a415;
+    font-size: 20px;
+    /* font: 400 14px/1 Gotham\ 9r; */
+    box-shadow: 0 2px 0 0 #c6cacc;
+    border-radius: 5px;
+}
+
+.btn:disabled{
+
 }
 
 a {
