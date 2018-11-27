@@ -1,72 +1,8 @@
 <template>
   <div class="hello">
-    <h1>{{ times }}</h1>
-    <h2>{{ msg }}</h2>
-    <h3> {{canadaTime}}</h3>
-    <ul>
-      <li>
-        <a
-        >
-
-        </a>
-      </li>
-      <li>
-        <a
-
-        >
-
-        </a>
-      </li>
-      <li>
-        <a
-
-        >
-
-        </a>
-      </li>
-      <li>
-        <a
-
-        >
-
-        </a>
-      </li>
-      <br>
-      <li>
-        <a
-
-        >
-
-        </a>
-      </li>
-    </ul>
-    <h2></h2>
-    <ul>
-      <li>
-        <a
-        >
-
-        </a>
-      </li>
-      <li>
-        <a
-        >
-
-        </a>
-      </li>
-      <li>
-        <a
-        >
-        </a>
-      </li>
-      <li>
-        <a
-
-        >
-
-        </a>
-      </li>
-    </ul>
+    <h1>{{ msg }}</h1>
+    <h2>{{ times }}</h2>
+    <h3> {{canadaTime}}</h3>  
   </div>
 </template>
 
@@ -78,7 +14,7 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      msg: 'Local Time',
+      msg: 'Welcome',
       times: null,
       canadaTime: null
     }

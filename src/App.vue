@@ -1,26 +1,21 @@
 <template>
   <div id="app">
     <nav class="pageHeader">
-      <a href="http://localhost:8080/#/">
+      <a href="http://localhost:8080/#/" class="pageHeaderLogo">
         <img id="logo" src="./assets/msm-logo-stack-rgb.svg">
       </a>
       <div class="navigation">
         <ul class="navigation-container">
-          <li class="navigation-item">
-            <a href="http://localhost:8080/#/AllProfiles">
+          <a href="http://localhost:8080/#/AllProfiles" class="navigation-item">
+            <li>
               <span class="navigation-bar-text">View All Profiles</span>
-            </a>
-          </li>
-          <li class="navigation-item">
-            <a href="http://localhost:8080/#/NewProfile">
+            </li>
+          </a>
+          <a href="http://localhost:8080/#/NewProfile" class="navigation-item">
+            <li>
               <span class="navigation-bar-text">Add New Profile</span>
-            </a>
-          </li>
-          <li class="navigation-item">
-            <a href="http://localhost:8080/#/">
-              <span class="navigation-bar-text">Search Profiles</span>
-            </a>
-          </li>
+            </li>
+          </a>
         </ul>
 
       </div>
@@ -56,7 +51,7 @@ body{
   height: auto;
   vertical-align: middle;
   /* position: absolute; */
-  /* top: 9px; */
+  top: 9px;
   left: 30px;
 }
 .pageHeader{
@@ -64,7 +59,7 @@ body{
   display: flex;
   top: 0px;
   left: 0px;
-  height: 50px;
+  height: 56px;
   border-bottom: 2px solid #dfe3e5;
   border-top: 2px solid #dfe3e5;;
   background: #ffffff;
@@ -72,6 +67,10 @@ body{
   left: 0;
   right: 0;
   position:absolute; */
+}
+.pageHeaderLogo {
+  align-self: center;
+  padding: 0 10px;
 }
 .navigation{
   align-self: center;
@@ -117,10 +116,11 @@ body{
 
 .navigation-item a {
   display: block;
-  text-decoration: none;
+  /* text-decoration: none; */
   z-index: 1000;
 }
 
-/* .navigation-bar-text{
-} */
+.navigation-item {
+  text-decoration: none;
+}
 </style>

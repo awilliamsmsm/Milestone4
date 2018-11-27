@@ -21,8 +21,10 @@
         <br>
         <br>
         <form class="add-profile-form">
-            <button class="btn" v-show='isProfileComplete' v-on:click="create">Submit</button>
-            <!-- <button v-on:click="create">Submit</button> -->
+            <!-- <transition name="fade"> -->
+            <button class="btn" :disabled="!isProfileComplete" v-on:click="create" value="http://localhost:8080/#/AllProfiles">Submit</button>
+                <!-- <button v-on:click="create">Submit</button> -->
+            <!-- </transition> -->
         </form>
     </div>
 </template>
@@ -86,19 +88,37 @@ table {
 
 .btn {
     color: #fff;
-    background-color: #48a415;
-    border-color: #48a415;
+    background-color: #562873;
+    border-color: #562873;
     font-size: 20px;
-    /* font: 400 14px/1 Gotham\ 9r; */
-    box-shadow: 0 2px 0 0 #c6cacc;
+    /* box-shadow: 0 2px 0 0 #c6cacc; */
     border-radius: 5px;
+    font-weight: 600;
+    font-family: "Open Sans",Arial,sans-serif;
 }
 
 .btn:disabled{
-
+    color: #fff;
+    background-color: #8f8f8f;
+    border-color: #8f8f8f;
+    font-size: 20px;
+    /* box-shadow: 0 2px 0 0 #c6cacc; */
+    border-radius: 5px;
+    font-weight: 600;
+    font-family: "Open Sans",Arial,sans-serif;
 }
 
 a {
   color: #7941b9
 }
+
+/* .fade-enter-active, .fade-leave-active {
+  transition: opacity 1s;
+}
+.fade-enter, .fade-leave-to{
+  opacity: 0;
+
+
+  v-show='isProfileComplete'
+} */
 </style>
