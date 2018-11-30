@@ -1,18 +1,6 @@
 <template>
     <div class="hello">
     <h1>{{ msg }}</h1>
-    <!-- <ul id='allProfilesList'>
-        <li
-        v-for="profile in profiles"
-        :key="profile.profileID"
-        >
-            {{ profile.profileID }}
-            {{profile.firstName}}
-            {{profile.lastName}}
-
-        </li>
-    </ul> -->
-
         <table class="profileView">
             <thead>
                 <tr>
@@ -33,7 +21,7 @@
                 <td class="profileIDCol"> {{profile.profileID}}</td>
                 <td class="profileIDCol"> {{profile.firstName}}</td>
                 <td class="profileIDCol"> {{profile.lastName}}</td>
-            </tr>
+            </tr>                                                                                                                                      
         </table>
   </div>
 </template>
@@ -42,7 +30,7 @@
 import profileService from '../services/profileService'
 
 export default {
-  name: 'AllProfiles',
+  name: 'Profiles',
   data () {
     return {
       msg: 'All profiles',
@@ -81,7 +69,7 @@ h1, h2 {
 }
 
 th {
-    width: 100px;
+    width: 200px;
 }
 
 th, td {
@@ -117,7 +105,7 @@ table {
     color: white;
 }
 .profileIDCol{
-    width: 170px;
+    width: 200px;
     max-width: 200px;
     white-space: nowrap;
     overflow: hidden;

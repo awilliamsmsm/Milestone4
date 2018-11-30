@@ -1,18 +1,6 @@
 <template>
     <div class="hello">
     <h1>{{ msg }}</h1>
-    <!-- <ul id='allProfilesList'>
-        <li
-        v-for="profile in profiles"
-        :key="profile.profileID"
-        >
-            {{ profile.profileID }}
-            {{profile.firstName}}
-            {{profile.lastName}}
-
-        </li>
-    </ul> -->
-
         <table class="profileView">
             <thead>
                 <tr>
@@ -21,7 +9,7 @@
                     <th>Last Name</th>
                 </tr>
             </thead>
-            <tr 
+            <tr
                 v-if="profile"
                 class="profile-row"
             >
@@ -46,7 +34,7 @@ export default {
   },
 
   async mounted () {
-    const { profileID } = this.$route.query;
+    const { profileID } = this.$route.query
     this.profile = (await profileService.getById(profileID)).data
   }
 }
@@ -59,6 +47,8 @@ h1, h2 {
 }
 th, td {
     padding: 5px;
+    width: 200px;
+    white-space: nowrap;
 }
 ul {
   list-style-type: none;

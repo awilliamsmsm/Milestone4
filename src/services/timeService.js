@@ -1,10 +1,10 @@
 import api from '../services/api'
 
 export default {
-    getTime (){
+    getTime () {
         return api().get('/getTime')
     },
-    getCanadaTime (){
+    getCanadaTime () {
         return api().get('/getCanadaTime')
     }
 }

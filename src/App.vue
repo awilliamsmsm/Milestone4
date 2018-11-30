@@ -6,7 +6,7 @@
       </a>
       <div class="navigation">
         <ul class="navigation-container">
-          <a href="http://localhost:8080/#/AllProfiles" class="navigation-item">
+          <a href="http://localhost:8080/#/Profiles" class="navigation-item">
             <li>
               <span class="navigation-bar-text">View All Profiles</span>
             </li>
@@ -92,7 +92,7 @@ body{
   flex-direction: column;
   /* border-radius: 5px; */
   justify-content: center;
-  height: 50px;
+  height: 56px;
   border-left: 2px solid #dfe3e5;
   /* border-right: 2px solid #dfe3e5; */
   padding-left: 10px;

@@ -1,15 +1,15 @@
 import api from '../services/api'
 
 export default {
-    getAll (){
+    getAll () {
         return api().get('/profiles')
     },
 
-    getById (profileID){
+    getById (profileID) {
         return api().get(`/profiles/${profileID}`)
     },
 
-    addNewProfile (profile){
+    addNewProfile (profile) {
         return api().post('/JSONprofile', profile)
     }
 }

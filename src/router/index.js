@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
-import AllProfiles from '@/components/AllProfiles'
+import Profiles from '@/components/Profiles'
 import AddProfile from '@/components/AddProfile'
-import ProfileView from '@/components/ProfileView';
+import ProfileView from '@/components/ProfileView'
 
 Vue.use(Router)
 
@@ -15,9 +15,9 @@ export default new Router({
       component: HelloWorld
     },
     {
-      path: '/AllProfiles',
+      path: '/Profiles',
       name: 'ViewAllProfiles',
-      component: AllProfiles
+      component: Profiles
     },
     {
       path: '/NewProfile',

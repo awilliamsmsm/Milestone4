@@ -2,30 +2,51 @@
     <div class="form">
         <h1>Create Profile</h1>
 
-        <!-- <p class="error" v-if="errors.length">
-            <ul>
-                <li v-for="error in errors"> {{ error }}</li>
-            </ul>
-        </p> -->
+        <!-- <p class="error" v-if="errors.length"> -->
+            <!-- <ul> -->
+                <!-- <li v-for="error in errors"> {{ error }}</li> -->
+            <!-- </ul> -->
+        <!-- </p> -->
 
         <form class="add-profile-form">
-            First name:
-            <input type="text" v-model="profile.firstName" required>
+            <div class="inputDiv">
+                <!-- First name: -->
+                First name: 
+                <div class="inputWrapper">
+                    <input 
+                        class="text_input"
+                        :class="{ 'text_input--error': errors.has('firstName') }" 
+                        type="text" 
+                        v-model="profile.firstName" 
+                        v-validate="'required|alpha'" 
+                        data-vv-name="firstName" 
+                        data-vv-validate-on="blur|input"
+                        
+                    >
+                    <span class="errorText" v-if="errors.first('firstName')">{{ errors.first('firstName') }}</span>
+                </div>
+            </div>
+            <div class="inputDiv">
+                Last name: 
+                <div class="inputWrapper"> 
+                    <input 
+                        class="text_input"
+                        :class="{ 'text_input--error': errors.has('lastName') }" 
+                        type="text" 
+                        v-model="profile.lastName" 
+                        v-validate="'required|alpha'" 
+                        data-vv-name="lastName" 
+                        data-vv-validate-on="blur|input"
+                    >
+                    <span class="errorText" v-if="errors.first('lastName')">{{ errors.first('lastName') }}</span>
+                </div>
+            </div>
         </form>
-        <br>
-        <br>
-        <form class="add-profile-form">
-            Last name:
-            <input type="text" v-model="profile.lastName" required>
-        </form>
-        <br>
-        <br>
-        <form class="add-profile-form">
-            <!-- <transition name="fade"> -->
-            <button class="btn" :disabled="!isProfileComplete" v-on:click="create" value="http://localhost:8080/#/AllProfiles">Submit</button>
-                <!-- <button v-on:click="create">Submit</button> -->
-            <!-- </transition> -->
-        </form>
+        <div>
+            <form class="add-profile-form">
+                <button class="btn" type="button" :disabled="!isProfileComplete || errors.first('lastName') || errors.first('firstName')" v-on:click="create" value="http://localhost:8080/#/AllProfiles">Submit</button>
+            </form>
+        </div>
     </div>
 </template>
 
@@ -38,11 +59,10 @@ export default {
         return {
             profile: {
                 firstName: null,
-                lastName: null,
+                lastName: null
             }
-        }  
+        }
     },
-    
     computed:{
         isProfileComplete () {
             return this.profile.firstName && this.profile.lastName;
@@ -54,9 +74,14 @@ export default {
          async create() {
             console.log(this.profile);
             await profileService.addNewProfile(this.profile)
+            .then(() => {
+                this.$router.push({ name: 'ViewAllProfiles' });
+            });
          }
-    }
-
+    },
+    // props: {
+    //     isNotErrorFirstName: errors.first('firstName')
+    // }
 }
 </script>
 
@@ -74,8 +99,11 @@ li {
   margin: 0 10px;
 }
 .form {
+    position: relative;
     font: 500 1.6em/1.4 Open Sans,Arial,Helvetica,Sans-Serif;
     font-weight: 300;
+    /* max-width: 450px; */
+    align-content: center;
 }
 
 table {
@@ -91,7 +119,6 @@ table {
     background-color: #562873;
     border-color: #562873;
     font-size: 20px;
-    /* box-shadow: 0 2px 0 0 #c6cacc; */
     border-radius: 5px;
     font-weight: 600;
     font-family: "Open Sans",Arial,sans-serif;
@@ -102,7 +129,6 @@ table {
     background-color: #8f8f8f;
     border-color: #8f8f8f;
     font-size: 20px;
-    /* box-shadow: 0 2px 0 0 #c6cacc; */
     border-radius: 5px;
     font-weight: 600;
     font-family: "Open Sans",Arial,sans-serif;
@@ -112,13 +138,55 @@ a {
   color: #7941b9
 }
 
+/* label {
+    position: relative;
+    opacity: 0.8;
+    top: 22px;
+    left: 20px;
+    color: #ff1e00; */
+/* } */
+
+.errorText {
+    font-size: 12px;
+    align-items: right;
+    color: #ff1e00;
+}
+
+.inputDiv{
+    display: flex;
+    padding-bottom: 15px;
+}
+
+.inputWrapper {
+    display: flex;
+    flex-direction: column;
+    padding-left: 5px;
+}
+
+.text_input{
+    width: 200px;
+    border: 0;
+    padding: 10px 10px 10px 10px;
+    background: #eee;
+    border: 1px solid #562873;
+    border-radius: 5px;
+    font-size: 15px;
+    font-family: "Open Sans",Arial,sans-serif;
+}
+
+.safeBox {
+    border: 1px solid #562873;
+}
+
+.text_input--error{
+    border: 1px solid #ff0000;
+}
+
 /* .fade-enter-active, .fade-leave-active {
   transition: opacity 1s;
 }
 .fade-enter, .fade-leave-to{
   opacity: 0;
-
-
   v-show='isProfileComplete'
 } */
 </style>

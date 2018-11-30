@@ -2,7 +2,7 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <h2>{{ times }}</h2>
-    <h3> {{canadaTime}}</h3>  
+    <h3> {{canadaTime}}</h3>
   </div>
 </template>
 
