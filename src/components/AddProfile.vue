@@ -1,41 +1,32 @@
 <template>
     <div class="form">
         <h1>Create Profile</h1>
-
-        <!-- <p class="error" v-if="errors.length"> -->
-            <!-- <ul> -->
-                <!-- <li v-for="error in errors"> {{ error }}</li> -->
-            <!-- </ul> -->
-        <!-- </p> -->
-
         <form class="add-profile-form">
             <div class="inputDiv">
-                <!-- First name: -->
-                First name: 
+                First name:
                 <div class="inputWrapper">
-                    <input 
+                    <input
                         class="text_input"
-                        :class="{ 'text_input--error': errors.has('firstName') }" 
-                        type="text" 
-                        v-model="profile.firstName" 
-                        v-validate="'required|alpha'" 
-                        data-vv-name="firstName" 
+                        :class="{ 'text_input--error': errors.has('firstName') }"
+                        type="text"
+                        v-model="profile.firstName"
+                        v-validate="'required|alpha'"
+                        data-vv-name="firstName"
                         data-vv-validate-on="blur|input"
-                        
                     >
                     <span class="errorText" v-if="errors.first('firstName')">{{ errors.first('firstName') }}</span>
                 </div>
             </div>
             <div class="inputDiv">
-                Last name: 
-                <div class="inputWrapper"> 
-                    <input 
+                Last name:
+                <div class="inputWrapper">
+                    <input
                         class="text_input"
-                        :class="{ 'text_input--error': errors.has('lastName') }" 
-                        type="text" 
-                        v-model="profile.lastName" 
-                        v-validate="'required|alpha'" 
-                        data-vv-name="lastName" 
+                        :class="{ 'text_input--error': errors.has('lastName') }"
+                        type="text"
+                        v-model="profile.lastName"
+                        v-validate="'required|alpha'"
+                        data-vv-name="lastName"
                         data-vv-validate-on="blur|input"
                     >
                     <span class="errorText" v-if="errors.first('lastName')">{{ errors.first('lastName') }}</span>
@@ -63,25 +54,21 @@ export default {
             }
         }
     },
-    computed:{
+    computed: {
         isProfileComplete () {
-            return this.profile.firstName && this.profile.lastName;
-            //return Object.keys(this.firstName).some(key => this.firstName[key].validated) && Object.keys(this.lastName).some(key => this.lastName[key].valid);
+            return this.profile.firstName && this.profile.lastName
         }
     },
 
-    methods:{
-         async create() {
-            console.log(this.profile);
+    methods: {
+         async create () {
+            console.log(this.profile)
             await profileService.addNewProfile(this.profile)
             .then(() => {
-                this.$router.push({ name: 'ViewAllProfiles' });
-            });
+                this.$router.push({ name: 'ViewAllProfiles' })
+            })
          }
-    },
-    // props: {
-    //     isNotErrorFirstName: errors.first('firstName')
-    // }
+    } 
 }
 </script>
 
@@ -102,7 +89,6 @@ li {
     position: relative;
     font: 500 1.6em/1.4 Open Sans,Arial,Helvetica,Sans-Serif;
     font-weight: 300;
-    /* max-width: 450px; */
     align-content: center;
 }
 
@@ -137,14 +123,6 @@ table {
 a {
   color: #7941b9
 }
-
-/* label {
-    position: relative;
-    opacity: 0.8;
-    top: 22px;
-    left: 20px;
-    color: #ff1e00; */
-/* } */
 
 .errorText {
     font-size: 12px;

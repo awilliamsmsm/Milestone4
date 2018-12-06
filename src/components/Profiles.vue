@@ -18,10 +18,10 @@
                 v-for="profile in filteredProfiles"
                 :key="profile.profileID"
                 @click="openProfileView(profile.profileID)">
-                <td class="profileIDCol"> {{profile.profileID}}</td>
-                <td class="profileIDCol"> {{profile.firstName}}</td>
-                <td class="profileIDCol"> {{profile.lastName}}</td>
-            </tr>                                                                                                                                      
+                <td id="profileIDCol" class="profileCol"> {{profile.profileID}}</td>
+                <td class="profileCol"> {{profile.firstName}}</td>
+                <td class="profileCol"> {{profile.lastName}}</td>
+            </tr>
         </table>
   </div>
 </template>
@@ -46,17 +46,17 @@ export default {
     window.cmp = this
   },
   methods: {
-    openProfileView(profileID) {
+    openProfileView (profileID) {
         this.$router.push({ name: 'ProfileView', query: { profileID } })
     }
   },
   computed: {
-    filteredProfiles: function(){
+    filteredProfiles: function () {
         return this.profiles.filter((profile) => {
-            return profile.profileID.match(this.filterID) 
-                && profile.firstName.toLowerCase().match(this.filterFirstName.toLowerCase()) 
-                && profile.lastName.toLowerCase().match(this.filterLastName.toLowerCase())
-        });
+            return profile.profileID.match(this.filterID) &&
+                profile.firstName.toLowerCase().match(this.filterFirstName.toLowerCase()) &&
+                profile.lastName.toLowerCase().match(this.filterLastName.toLowerCase())
+        })
     }
   }
 }
@@ -104,7 +104,7 @@ table {
     background-color: #562873;
     color: white;
 }
-.profileIDCol{
+.profileCol{
     width: 200px;
     max-width: 200px;
     white-space: nowrap;
