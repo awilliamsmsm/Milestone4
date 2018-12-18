@@ -1,5 +1,5 @@
 <template>
-    <div class="hello">
+    <div class="        ">
     <h1>{{ msg }}</h1>
         <table class="profileView">
             <thead>

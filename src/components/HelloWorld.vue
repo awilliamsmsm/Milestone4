@@ -8,7 +8,7 @@
 
 <script>
 // import axios from 'axios';
-import timeService from '../services/timeService'
+import {getTime, getCanadaTime} from '../services/timeService'
 
 export default {
   name: 'HelloWorld',
@@ -22,8 +22,8 @@ export default {
 
   async mounted () {
     // const { data } = await axios.get('http://localhost:9000/getTime');
-    this.times = (await timeService.getTime()).data
-    this.canadaTime = (await timeService.getCanadaTime()).data
+    this.times = (await getTime()).data
+    this.canadaTime = (await getCanadaTime()).data
     // this.msg = data;
   }
 }

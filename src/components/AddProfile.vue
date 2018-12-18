@@ -6,6 +6,7 @@
                 First name:
                 <div class="inputWrapper">
                     <input
+                        id="firstNameQuestion"
                         class="text_input"
                         :class="{ 'text_input--error': errors.has('firstName') }"
                         type="text"
@@ -14,13 +15,14 @@
                         data-vv-name="firstName"
                         data-vv-validate-on="blur|input"
                     >
-                    <span class="errorText" v-if="errors.first('firstName')">{{ errors.first('firstName') }}</span>
+                    <span id="firstNameError" class="errorText" v-if="errors.first('firstName')">{{ errors.first('firstName') }}</span>
                 </div>
             </div>
             <div class="inputDiv">
                 Last name:
                 <div class="inputWrapper">
                     <input
+                        id="lastNameQuestion"
                         class="text_input"
                         :class="{ 'text_input--error': errors.has('lastName') }"
                         type="text"
